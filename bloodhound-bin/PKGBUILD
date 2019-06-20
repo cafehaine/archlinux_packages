@@ -1,0 +1,23 @@
+# Maintainer: Kilian Guillaume "cafehaine" <kilian dot guillaume at gmail dot com>
+pkgname=bloodhound-bin
+_realname=bloodhound
+pkgver=2.1.0
+pkgrel=1
+pkgdesc="Normalized Lua functions"
+arch=('x86_64')
+url="https://github.com/BloodHoundAD/BloodHound#about-bloodhound"
+license=('GPL3')
+depends=('gconf' 'libxss')
+source=("https://github.com/BloodHoundAD/BloodHound/releases/download/$pkgver/BloodHound-linux-x64.zip" "bloodhound.desktop" "bloodhound.sh")
+md5sums=('SKIP' 'SKIP' 'SKIP')
+
+package() {
+	install -Dm644 bloodhound.desktop -t "$pkgdir/usr/share/applications/"
+	install -Dm755 bloodhound.sh -t "$pkgdir/usr/bin/"
+	cd "$srcdir/BloodHound-linux-x64"
+	install -Dm644 *.{so,dat,bin,pak} -t "$pkgdir/opt/bloodhound/"
+	install -Dm644 locales/*.pak -t "$pkgdir/opt/bloodhound/locales"
+	install -Dm755 BloodHound -t "$pkgdir/opt/bloodhound/"
+	cp -dr --no-preserve=ownership resources/ "$pkgdir/opt/bloodhound/"
+}
+

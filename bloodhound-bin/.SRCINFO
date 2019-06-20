@@ -1,0 +1,18 @@
+pkgbase = bloodhound-bin
+	pkgdesc = Normalized Lua functions
+	pkgver = 2.1.0
+	pkgrel = 1
+	url = https://github.com/BloodHoundAD/BloodHound#about-bloodhound
+	arch = x86_64
+	license = GPL3
+	depends = gconf
+	depends = libxss
+	source = https://github.com/BloodHoundAD/BloodHound/releases/download/2.1.0/BloodHound-linux-x64.zip
+	source = bloodhound.desktop
+	source = bloodhound.sh
+	md5sums = SKIP
+	md5sums = SKIP
+	md5sums = SKIP
+
+pkgname = bloodhound-bin
+

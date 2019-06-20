@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=BloodHound
+Type=Application
+Exec=bloodhound.sh
