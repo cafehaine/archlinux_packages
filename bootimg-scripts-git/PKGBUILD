@@ -1,0 +1,23 @@
+# Maintainer: Kilian Guillaume "cafehaine" <kilian dot guillaume at gmail dot com>
+pkgname=bootimg-scripts-git
+pkgrel=1
+pkgver=r1.d402b1f
+pkgdesc="Perl scripts for unpacking and repackaging Android boot.img's."
+arch=('any')
+url="https://github.com/sophiehuiberts/Bootimg-script"
+license=('Unknown')
+depends=('cpio')
+makedepends=('git')
+source=("git+https://github.com/sophiehuiberts/Bootimg-scripts")
+md5sums=('SKIP')
+
+pkgver() {
+	cd "$srcdir/Bootimg-scripts"
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+	cd "$srcdir/Bootimg-scripts"
+	install -Dm755 *.pl -t "$pkgdir"/usr/bin/
+}
+
