@@ -6,8 +6,8 @@ pkgdesc="A scala kernel for Jupyter"
 arch=('x86_64')
 url="https://almond.sh/"
 license=('BSD')
-depends=('jupyter')
-makedepends=() #'coursier')
+depends=('jupyter' 'scala')
+makedepends=()
 source=("https://github.com/almond-sh/almond/releases/download/v0.8.1/almond")
 md5sums=('SKIP')
 
