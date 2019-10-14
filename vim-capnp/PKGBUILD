@@ -1,0 +1,25 @@
+# Maintainer: Kilian Guillaume "cafehaine" <kilian dot guillaume at gmail dot com>
+pkgname=vim-capnp-git
+pkgrel=1
+pkgver=r25.954202e
+pkgdesc="Syntax highlighting for Cap'n Proto schema files"
+arch=('any')
+url="https://github.com/sophiehuiberts/Bootimg-script"
+license=('MIT')
+depends=('vim')
+makedepends=('git')
+source=("git+https://github.com/cstrahan/vim-capnp")
+md5sums=('SKIP')
+
+pkgver() {
+	cd "$srcdir/vim-capnp"
+	printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+	cd "$srcdir/vim-capnp"
+	install -Dm644 ftdetect/capnp.vim -t "$pkgdir"/usr/share/vim/vimfiles/ftdetect/
+	install -Dm644 indent/capnp.vim -t "$pkgdir"/usr/share/vim/vimfiles/indent/
+	install -Dm644 syntax/capnp.vim -t "$pkgdir"/usr/share/vim/vimfiles/syntax/
+}
+

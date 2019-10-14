@@ -1,0 +1,14 @@
+pkgbase = vim-capnp-git
+	pkgdesc = Syntax highlighting for Cap'n Proto schema files
+	pkgver = r25.954202e
+	pkgrel = 1
+	url = https://github.com/sophiehuiberts/Bootimg-script
+	arch = any
+	license = MIT
+	makedepends = git
+	depends = vim
+	source = git+https://github.com/cstrahan/vim-capnp
+	md5sums = SKIP
+
+pkgname = vim-capnp-git
+
