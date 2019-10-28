@@ -1,0 +1,21 @@
+# Maintainer: Kilian Guillaume <kilian.guillaume@gmail.com>
+pkgname=mirrorlist-timer
+pkgrel=1
+pkgver=0.1
+pkgdesc="A systemd timer to update your mirrorlist weekly"
+arch=('any')
+url="https://github.com/cafehaine/archlinux_packages"
+license=('MIT')
+depends=('pacman-contrib' 'curl')
+makedepends=()
+source=("generate_mirrorlist.sh" "update_mirrorlist.timer" "update_mirrorlist.service")
+md5sums=('SKIP' 'SKIP' 'SKIP')
+install="${pkgname}.install"
+
+package() {
+	cd "$srcdir"
+	install -Dm644 update_mirrorlist.timer -t "$pkgdir"/usr/lib/systemd/system/
+	install -Dm644 update_mirrorlist.service -t "$pkgdir"/usr/lib/systemd/system/
+	install -Dm755 generate_mirrorlist.sh -t "$pkgdir"/usr/bin/
+}
+

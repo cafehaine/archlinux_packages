@@ -1,0 +1,10 @@
+[Unit]
+Description=Automatic update of the pacman mirrorlist
+Requires=network-online.target
+
+[Timer]
+OnCalendar=weekly UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

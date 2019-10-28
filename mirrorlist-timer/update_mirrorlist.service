@@ -1,0 +1,6 @@
+[Unit]
+Description=Automatic update of the pacman mirrorlist
+
+[Service]
+Type=oneshot
+ExecStart=generate_mirrorlist.sh

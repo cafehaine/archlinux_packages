@@ -1,0 +1,8 @@
+post_install() {
+	echo
+	echo "==> To update your mirrorlist automatically every week, run:"
+	echo "==> systemctl enable update_mirrorlist.timer"
+	echo "==> Otherwise, you can periodically run as root:"
+	echo "==> generate_mirrorlist.sh"
+	echo
+}
