@@ -1,5 +1,6 @@
 [Unit]
 Description=Automatic update of the pacman mirrorlist
+Requires=network-online.target
 
 [Service]
 Type=oneshot
