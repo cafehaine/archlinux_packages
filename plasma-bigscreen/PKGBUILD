@@ -1,0 +1,33 @@
+# Maintainer: Kilian Guillaume "cafehaine" <kilian dot guillaume at gmail dot com>
+pkgname='plasma-bigscreen-git'
+_reponame=plasma-bigscreen
+pkgver=290
+pkgrel=1
+pkgdesc="A completely open UI stack for your own personal TV box"
+arch=('x86_64')
+url="https://plasma-bigscreen.org"
+license=('GPL2')
+#TODO find all the correct dependencies instead of just what was missing on
+depends=('kactivities-stats' 'plasma-workspace')
+makedepends=('git' 'extra-cmake-modules')
+source=("git+https://invent.kde.org/KDE/plasma-bigscreen")
+md5sums=('SKIP')
+provides=('plasma-bigscreen')
+
+pkgver() {
+	cd ${srcdir}/${_reponame}
+	git rev-list --count HEAD
+}
+
+build() {
+	cd ${srcdir}/${_reponame}
+	mkdir -p build
+	cd build
+	cmake .. -Wno-dev -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Release -DKDE_INSTALL_LIBDIR=lib -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
+	make
+}
+
+package() {
+	cd ${srcdir}/${_reponame}/build
+	make DESTDIR="$pkgdir/" install
+}
