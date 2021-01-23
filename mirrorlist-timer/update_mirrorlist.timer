@@ -1,9 +1,0 @@
-[Unit]
-Description=Automatic update of the pacman mirrorlist
-
-[Timer]
-OnCalendar=weekly UTC
-Persistent=true
-
-[Install]
-WantedBy=timers.target
